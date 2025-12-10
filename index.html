@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sagar Chopane | Portfolio</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <!-- Tailwind CDN (for quick conversion). Use compiled Tailwind for production later. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* Small custom styles for preloader and fade animations */
+      .preloader {
+        position: fixed;
+        inset: 0;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 60;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+      }
+      .preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      /* simple spinner */
+      .spinner {
+        border: 6px solid rgba(0, 0, 0, 0.08);
+        border-top-color: #2563eb;
+        border-radius: 9999px;
+        width: 56px;
+        height: 56px;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* fade-in on observe */
+      .ai-fade {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .ai-fade.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* simple modal */
+      .modal-backdrop {
+        background: rgba(0, 0, 0, 0.6);
+      }
+    </style>
+  </head>
+
+  <body class="antialiased text-slate-800 bg-slate-50">
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+      <div class="text-center">
+        <div class="spinner mx-auto"></div>
+        <p class="mt-4 text-slate-500">Loading — please wait.</p>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-sm border-b">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="flex items-center justify-between h-16">
+          <div class="flex-shrink-0">
+            <a href="#home" class="text-xl font-semibold">Hello👋</a>
+          </div>
+
+          <nav class="hidden md:flex space-x-6">
+            <a href="#home" class="hover:text-blue-600">Home</a>
+            <a href="#skill" class="hover:text-blue-600">Skill</a>
+            <a href="#projects" class="hover:text-blue-600">Projects</a>
+            <a href="#education" class="hover:text-blue-600">Education</a>
+            <a href="#contact" class="hover:text-blue-600">Contact</a>
+          </nav>
+        </header>
+        <div class="md:hidden">
+          <button
+            id="btn-mobile"
+            aria-label="Toggle menu"
+            class="p-2 rounded-md focus:outline-none focus:ring"
+          >
+            <svg
+              id="icon-open"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 8h16M4 16h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden bg-white border-t hidden">
+        <div class="px-4 py-3 space-y-1">
+          <a href="#home" class="block py-2">Home</a>
+          <a href="#skill" class="block py-2">Skill</a>
+          <a href="#projects" class="block py-2">Projects</a>
+          <a href="#education" class="block py-2">Education</a>
+          <a href="#contact" class="block py-2">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="home" class="min-h-[70vh] flex items-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-6 ai-fade" data-animate>
+              <h4 class="text-sm text-slate-500">Hello, I'm</h4>
+              <h1 class="text-4xl md:text-6xl font-bold">Sagar Chopane</h1>
+              <p class="text-lg text-slate-600">
+                Web Developer — building modern interfaces with clean code.
+              </p>
+              <div class="flex gap-3">
+                <a
+                  class="inline-block px-4 py-2 bg-blue-300 text-white rounded hover:bg-blue-400"
+                  href="#"
+                  >View Resume</a
+                >
+                <a
+                  class="inline-block px-4 py-2 bg-green-300 text-white rounded hover:bg-green-400"
+                  href="#"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+
+            <div class="flex justify-end ai-fade" data-animate>
+              <img
+                src="img/user.jpg"
+                alt="profile"
+                class="max-w-xs rounded-lg shadow-lg object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS (icons-only, using images from img/icons/) -->
+      <section id="skill" class="py-16 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mb-8 ai-fade" data-animate>
+            <h4 class="text-sm text-slate-500">01</h4>
+            <h2 class="text-3xl font-bold">My Skills</h2>
+          </div>
+
+          <!-- icon grid -->
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-6"
+          >
+            <!-- HTML -->
+            <div
+              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              data-animate
+            >
+              <img
+                src="img/icons/html_html5_icon.png"
+                alt="HTML5"
+                class="w-14 h-14 object-contain"
+              />
+              <span class="text-sm font-medium">HTML</span>
+            </div>
+
+            <!-- CSS -->
+            <div
+              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              data-animate
+            >
+              <img
+                src="img/icons/css3_css_file_development_icon.png"
+                alt="CSS3"
+                class="w-14 h-14 object-contain"
+              />
+              <span class="text-sm font-medium">CSS</span>
+            </div>
+
+            <!-- JavaScript -->
+            <div
+              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              data-animate
+            >
+              <img
+                src="img/icons/javascript_icon.png"
+                alt="JavaScript"
+                class="w-14 h-14 object-contain"
+              />
+              <span class="text-sm font-medium">JavaScript</span>
+            </div>
+
+            <!-- React -->
+            <div
+              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              data-animate
+            >
+              <img
+                src="img/icons/react native_react_icon.png"
+                alt="React"
+                class="w-14 h-14 object-contain"
+              />
+              <span class="text-sm font-medium">React</span>
+            </div>
+
+            <div
+              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              data-animate
+            >
+              <img
+                src="img\icons\icons8-tailwind-css-96.png"
+                alt="Tailwind (placeholder)"
+                class="w-14 h-14 object-contain"
+              />
+              <span class="text-sm font-medium">Tailwind</span>
+            </div>
+
+            <!-- Node.js -->
+            <div
+              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              data-animate
+            >
+              <img
+                src="img/icons/node_icon.png"
+                alt="Node.js"
+                class="w-14 h-14 object-contain"
+              />
+              <span class="text-sm font-medium">Node.js</span>
+            </div>
+
+            <!-- Express -->
+            <div
+              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              data-animate
+            >
+              <img
+                src="img/icons/expressjs_logo_icon_169185.png"
+                alt="Express.js"
+                class="w-14 h-14 object-contain"
+              />
+              <span class="text-sm font-medium">Express</span>
+            </div>
+
+            <!-- MongoDB -->
+            <div
+              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              data-animate
+            >
+              <img
+                src="img/icons/mongodb_icon.png"
+                alt="MongoDB"
+                class="w-14 h-14 object-contain"
+              />
+              <span class="text-sm font-medium">MongoDB</span>
+            </div>
+
+            <!-- Git -->
+            <div
+              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              data-animate
+            >
+              <img
+                src="img/icons/git_icon.png"
+                alt="Git"
+                class="w-14 h-14 object-contain"
+              />
+              <span class="text-sm font-medium">Git</span>
+            </div>
+
+            <!-- GitHub -->
+            <div
+              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              data-animate
+            >
+              <img
+                src="img/icons/github_icon.png"
+                alt="GitHub"
+                class="w-14 h-14 object-contain"
+              />
+              <span class="text-sm font-medium">GitHub</span>
+            </div>
+
+            <!-- VS Code -->
+            <div
+              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              data-animate
+            >
+              <img
+                src="img/icons/vscode_fill_icon.png"
+                alt="VS Code"
+                class="w-14 h-14 object-contain"
+              />
+              <span class="text-sm font-medium">VS Code</span>
+            </div>
+
+            <!-- Postman -->
+            <div
+              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              data-animate
+            >
+              <img
+                src="img/icons/postman_icon.png"
+                alt="Postman"
+                class="w-14 h-14 object-contain"
+              />
+              <span class="text-sm font-medium">Postman</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="py-16 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mb-8 ai-fade" data-animate>
+            <h4 class="text-sm text-slate-500">02</h4>
+            <h2 class="text-3xl font-bold">My Projects</h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Example project card repeat -->
+            <!-- Card 1 -->
+            <article
+              class="bg-white rounded-lg shadow overflow-hidden ai-fade"
+              data-animate
+            >
+              <button
+                class="w-full text-left"
+                data-project-open='{"title":"Code Blog","img":"img/portfolio/codeblog.jpeg","desc":"HTML | CSS | JavaScript | React.js","link":"g/"}'
+              >
+                <img
+                  src="img/portfolio/codeblog.jpeg"
+                  alt="Code Blog"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-4">
+                  <!-- <h3 class="font-semibold">Code Blog</h3>
+                  <p class="text-sm text-slate-500">HTML | CSS | JavaScript | React.js</p> -->
+                </div>
+              </button>
+            </article>
+
+            <!-- Card 2 -->
+            <article
+              class="bg-white rounded-lg shadow overflow-hidden ai-fade"
+              data-animate
+            >
+              <button
+                class="w-full text-left"
+                data-project-open='{"title":"Visinory","img":"img/portfolio/visinory.jpeg","desc":"Python | TensorFlow | Fast-API | React.js","link":"/"}'
+              >
+                <img
+                  src="img/portfolio/visinory.jpeg"
+                  alt="Visinory"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-4">
+                  <!-- <h3 class="font-semibold">Visinory</h3>
+                  <p class="text-sm text-slate-500">Python | TensorFlow | Fast-API | React.js</p> -->
+                </div>
+              </button>
+            </article>
+
+            <!-- Card 3 -->
+            <article
+              class="bg-white rounded-lg shadow overflow-hidden ai-fade"
+              data-animate
+            >
+              <button
+                class="w-full text-left"
+                data-project-open='{"title":"TB Vision","img":"img/portfolio/tbvision.png","desc":"Python | PyTorch | HTML | CSS | JavaScript","link":"/"}'
+              >
+                <img
+                  src="img/portfolio/tbvision.png"
+                  alt="TB Vision"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-4">
+                  <!-- <h3 class="font-semibold">TB Vision</h3>
+                  <p class="text-sm text-slate-500">Python | PyTorch | HTML | CSS | JavaScript</p> -->
+                </div>
+              </button>
+            </article>
+
+            <!-- Additional project cards (Music Academy, Slack Clone, ChatBot, etc.) -->
+            <article
+              class="bg-white rounded-lg shadow overflow-hidden ai-fade"
+              data-animate
+            >
+              <button
+                class="w-full text-left"
+                data-project-open='{"title":"Music Academy","img":"img/portfolio/music-art.jpeg","desc":"React.js | Tailwind | UI","link":"/"}'
+              >
+                <img
+                  src="img/portfolio/music-art.jpeg"
+                  alt="Music Academy"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-4">
+                  <!-- <h3 class="font-semibold">Music Academy</h3>
+                  <p class="text-sm text-slate-500">React.js | Tailwind | UI</p> -->
+                </div>
+              </button>
+            </article>
+
+            <article
+              class="bg-white rounded-lg shadow overflow-hidden ai-fade"
+              data-animate
+            >
+              <button
+                class="w-full text-left"
+                data-project-open='{"title":"Slack Clone","img":"img/portfolio/slack-clone.jpeg","desc":"React.js| MUI| Node.js | Express.js| MongoDB | WebSocket","link":"/"}'
+              >
+                <img
+                  src="img/portfolio/slack-clone.jpeg"
+                  alt="Slack Clone"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-4">
+                  <!-- <h3 class="font-semibold">Slack Clone</h3>
+                  <p class="text-sm text-slate-500">React.js | Node.js | WebSocket</p> -->
+                </div>
+              </button>
+            </article>
+
+            <article
+              class="bg-white rounded-lg shadow overflow-hidden ai-fade"
+              data-animate
+            >
+              <button
+                class="w-full text-left"
+                data-project-open='{"title":"ChatBot For Leave","img":"img/portfolio/chatbot.jpeg","desc":"Python | MYSQL | RASA | Flask","link":"t"}'
+              >
+                <img
+                  src="img/portfolio/chatbot.jpeg"
+                  alt="ChatBot"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-4">
+                  <!-- <h3 class="font-semibold">ChatBot For Leave</h3>
+                  <p class="text-sm text-slate-500">Python | RASA | Flask</p> -->
+                </div>
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education" class="py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mb-8 ai-fade" data-animate>
+            <h4 class="text-sm text-slate-500">03</h4>
+            <h2 class="text-3xl font-bold">Education</h2>
+          </div>
+
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow ai-fade" data-animate>
+              <p class="text-sm text-slate-500">Sept 2017 - Jun 2022</p>
+              <h3 class="font-semibold">BATU University Pune</h3>
+              <p class="text-sm text-slate-600">
+                B.Tech Civil Engineering — CGPA: 8.4
+              </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow ai-fade" data-animate>
+              <p class="text-sm text-slate-500">Nov 2024 - Nov 2025</p>
+              <h3 class="font-semibold">Masai School</h3>
+              <p class="text-sm text-slate-600">Full Stack Web Dev Trainee</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-1 ai-fade" data-animate>
+              <h4 class="text-sm text-slate-500">04</h4>
+              <h2 class="text-2xl font-bold">Contact Me</h2>
+
+              <div class="mt-6 space-y-4 text-sm text-slate-600">
+                <div>
+                  <h4 class="font-medium">Phone Number</h4>
+                  <p>+91 9028242263</p>
+                </div>
+                <div>
+                  <h4 class="font-medium">Email</h4>
+                  <p>sagarchopane@gmail.com</p>
+                </div>
+
+                <div>
+                  <h4 class="font-medium">Social</h4>
+                  <div class="flex gap-3 mt-2">
+                    <a
+                      href="https://www.linkedin.com/in/sagar-chopane-76b094230/"
+                      target="_blank"
+                      class="p-2 border rounded"
+                      >LinkedIn</a
+                    >
+                    <a
+                      href="https://github.com/SagarChopane"
+                      target="_blank"
+                      class="p-2 border rounded"
+                      >GitHub</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:col-span-2 ai-fade" data-animate>
+              <form
+                id="contact-form"
+                class="bg-slate-50 p-6 rounded-lg shadow space-y-4"
+                novalidate
+              >
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  class="w-full border rounded px-4 py-2"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your E-mail"
+                  class="w-full border rounded px-4 py-2"
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Phone Number"
+                  class="w-full border rounded px-4 py-2"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  class="w-full border rounded px-4 py-2 h-36"
+                ></textarea>
+
+                <div class="flex gap-3">
+                  <button
+                    id="submit"
+                    type="submit"
+                    class="px-6 py-2 bg-blue-600 text-white rounded"
+                  >
+                    Send
+                  </button>
+                  <button
+                    id="clear"
+                    type="button"
+                    class="px-6 py-2 border rounded"
+                  >
+                    Clear
+                  </button>
+                </div>
+
+                <div
+                  id="success"
+                  class="hidden bg-green-50 border border-green-200 text-green-800 p-3 rounded"
+                >
+                  Your message was sent successfully! I will be in touch as soon
+                  as I can.
+                </div>
+                <div
+                  id="error"
+                  class="hidden bg-red-50 border border-red-200 text-red-800 p-3 rounded"
+                >
+                  Something went wrong, try refreshing and submitting the form
+                  again.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- PROJECT LIGHTBOX / MODAL -->
+    <div
+      id="project-modal"
+      aria-hidden="true"
+      class="fixed inset-0 hidden items-center justify-center z-50"
+    >
+      <div class="modal-backdrop absolute inset-0"></div>
+      <div
+        class="relative max-w-3xl w-full bg-white rounded-lg shadow-lg overflow-hidden z-50"
+      >
+        <div class="p-4 flex justify-between items-start border-b">
+          <div>
+            <h3 id="pm-title" class="text-lg font-semibold"></h3>
+            <p id="pm-desc" class="text-sm text-slate-600"></p>
+          </div>
+          <button id="pm-close" class="text-slate-500 hover:text-slate-800">
+            ✕
+          </button>
+        </div>
+        <div class="p-4">
+          <img
+            id="pm-img"
+            src=""
+            alt=""
+            class="w-full h-72 object-cover rounded"
+          />
+          <div class="mt-4">
+            <a
+              id="pm-link"
+              class="inline-block px-4 py-2 bg-blue-600 text-white rounded"
+              href="#"
+              target="_blank"
+              >Open Project</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t mt-16">
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-500"
+      >
+        © <span id="year"></span> Sagar Chopane — Built with Tailwind + Vanilla
+        JS
+      </div>
+    </footer>
+
+    <!-- Vanilla JS -->
+    <script>
+      // Short helpers
+      const $ = (s, root = document) => root.querySelector(s);
+      const $$ = (s, root = document) => Array.from(root.querySelectorAll(s));
+
+      // Preloader
+      window.addEventListener("load", () => {
+        const p = document.getElementById("preloader");
+        setTimeout(() => p.classList.add("hidden"), 300); // small delay so it's visible briefly
+      });
+
+      // Mobile nav toggle
+      const btnMobile = document.getElementById("btn-mobile");
+      const mobileMenu = document.getElementById("mobile-menu");
+      btnMobile.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Smooth scroll for internal anchors
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const href = a.getAttribute("href");
+          if (href && href.startsWith("#")) {
+            const target = document.querySelector(href);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+              // close mobile menu if open
+              if (!mobileMenu.classList.contains("hidden"))
+                mobileMenu.classList.add("hidden");
+            }
+          }
+        });
+      });
+
+      // IntersectionObserver for simple fade-in animations
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      document.querySelectorAll("[data-animate]").forEach((el) => {
+        io.observe(el);
+        el.classList.add("ai-fade");
+      });
+
+      // Project modal
+      const projectButtons = document.querySelectorAll("[data-project-open]");
+      const pm = document.getElementById("project-modal");
+      const pmTitle = document.getElementById("pm-title");
+      const pmDesc = document.getElementById("pm-desc");
+      const pmImg = document.getElementById("pm-img");
+      const pmLink = document.getElementById("pm-link");
+      const pmClose = document.getElementById("pm-close");
+
+      projectButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const data = JSON.parse(btn.getAttribute("data-project-open"));
+          pmTitle.textContent = data.title || "";
+          pmDesc.textContent = data.desc || "";
+          pmImg.src = data.img || "";
+          pmLink.href = data.link || "#";
+          pm.classList.remove("hidden");
+          pm.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      pmClose.addEventListener("click", () => {
+        pm.classList.add("hidden");
+        pm.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      });
+
+      // click outside modal to close
+      pm.addEventListener("click", (e) => {
+        if (e.target.classList.contains("modal-backdrop")) {
+          pmClose.click();
+        }
+      });
+
+      // Contact form logic: show success, clear fields, no submission
+      const form = document.getElementById("contact-form");
+      const successBox = document.getElementById("success");
+      const errorBox = document.getElementById("error");
+      const clearBtn = document.getElementById("clear");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        // This version performs minimal validation — show success and clear.
+        const fd = new FormData(form);
+        // Optional: You can keep validation or remove to always clear — here we do a small check.
+        const name = fd.get("name")?.trim();
+        const email = fd.get("email")?.trim();
+        const message = fd.get("message")?.trim();
+
+        // If you want to accept empty fields, comment out the if-block below.
+        if (!name || !email || !message) {
+          // If you specifically asked earlier to allow empty fields and still show success,
+          // remove the next two lines and uncomment the form.reset() + show success lines.
+          alert("Please fill in name, email and message.");
+          return;
+        }
+
+        // email basic validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+
+        // Show success + clear inputs
+        errorBox.classList.add("hidden");
+        successBox.classList.remove("hidden");
+        form.reset();
+      });
+
+      // Clear button
+      clearBtn.addEventListener("click", () => form.reset());
+
+      // Footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
