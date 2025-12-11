@@ -67,88 +67,113 @@
     </div>
 
     <!-- NAVBAR -->
-    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-sm border-b">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header class="flex items-center justify-between h-16">
-          <div class="flex-shrink-0">
-            <a href="#home" class="text-xl font-semibold">Hello👋</a>
-          </div>
+    <header
+      class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b shadow-sm"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+      >
+        <!-- Logo -->
+        <a href="#home" class="text-xl font-semibold tracking-wide">
+          Hello👋
+        </a>
 
-          <nav class="hidden md:flex space-x-6">
-            <a href="#home" class="hover:text-blue-600">Home</a>
-            <a href="#skill" class="hover:text-blue-600">Skill</a>
-            <a href="#projects" class="hover:text-blue-600">Projects</a>
-            <a href="#education" class="hover:text-blue-600">Education</a>
-            <a href="#contact" class="hover:text-blue-600">Contact</a>
-          </nav>
-        </header>
-        <div class="md:hidden">
-          <button
-            id="btn-mobile"
-            aria-label="Toggle menu"
-            class="p-2 rounded-md focus:outline-none focus:ring"
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex space-x-8 text-sm font-medium">
+          <a href="#home" class="hover:text-blue-600 transition">Home</a>
+          <a href="#skill" class="hover:text-blue-600 transition">Skill</a>
+          <a href="#projects" class="hover:text-blue-600 transition"
+            >Projects</a
           >
-            <svg
-              id="icon-open"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 8h16M4 16h16"
-              />
-            </svg>
-          </button>
-        </div>
+          <a href="#education" class="hover:text-blue-600 transition"
+            >Education</a
+          >
+          <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+        </nav>
+
+        <!-- Mobile Button -->
+        <button
+          id="btn-mobile"
+          aria-label="Toggle menu"
+          class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition"
+        >
+          <svg
+            id="icon-open"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 8h16M4 16h16"
+            />
+          </svg>
+        </button>
       </div>
 
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="md:hidden bg-white border-t hidden">
-        <div class="px-4 py-3 space-y-1">
-          <a href="#home" class="block py-2">Home</a>
-          <a href="#skill" class="block py-2">Skill</a>
-          <a href="#projects" class="block py-2">Projects</a>
-          <a href="#education" class="block py-2">Education</a>
-          <a href="#contact" class="block py-2">Contact</a>
-        </div>
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-white border-t px-4 py-3 animate-slide"
+      >
+        <a href="#home" class="block py-2 text-sm">Home</a>
+        <a href="#skill" class="block py-2 text-sm">Skill</a>
+        <a href="#projects" class="block py-2 text-sm">Projects</a>
+        <a href="#education" class="block py-2 text-sm">Education</a>
+        <a href="#contact" class="block py-2 text-sm">Contact</a>
       </div>
     </header>
 
     <main>
       <!-- HERO -->
-      <section id="home" class="min-h-[70vh] flex items-center">
+      <section id="home" class="min-h-[70vh] flex items-center bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div class="space-y-6 ai-fade" data-animate>
-              <h4 class="text-sm text-slate-500">Hello, I'm</h4>
-              <h1 class="text-4xl md:text-6xl font-bold">Sagar Chopane</h1>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div class="ai-fade space-y-4" data-animate>
+              <h4 class="text-sm text-slate-500 uppercase tracking-wide">
+                Hello, I'm
+              </h4>
+
+              <h1 class="text-5xl font-bold text-slate-900 leading-tight">
+                Sagar Chopane
+              </h1>
+
               <p class="text-lg text-slate-600">
-                Web Developer — building modern interfaces with clean code.
+                Web Developer — creating clean UI & efficient applications.
               </p>
-              <div class="flex gap-3">
+
+              <div class="flex gap-4 pt-2">
+                <!-- Resume Button -->
                 <a
-                  class="inline-block px-4 py-2 bg-blue-300 text-white rounded hover:bg-blue-400"
                   href="#"
-                  >View Resume</a
+                  class="px-6 py-2.5 rounded-xl bg-slate-100 text-slate-700 shadow-[4px_4px_10px_#d1d5db,-4px_-4px_10px_#ffffff] hover:shadow-[inset_4px_4px_10px_#d1d5db,inset_-4px_-4px_10px_#ffffff] transition"
                 >
+                  View Resume
+                </a>
+
+                <!-- GitHub Button -->
                 <a
-                  class="inline-block px-4 py-2 bg-green-300 text-white rounded hover:bg-green-400"
-                  href="#"
-                  >GitHub</a
+                  href="https://github.com/SagarChopane"
+                  target="_blank"
+                  class="px-6 py-2.5 rounded-xl bg-slate-100 text-slate-700 shadow-[4px_4px_10px_#d1d5db,-4px_-4px_10px_#ffffff] hover:shadow-[inset_4px_4px_10px_#d1d5db,inset_-4px_-4px_10px_#ffffff] transition"
                 >
+                  GitHub
+                </a>
               </div>
             </div>
 
-            <div class="flex justify-end ai-fade" data-animate>
+            <div
+              class="ai-fade flex justify-center md:justify-end"
+              data-animate
+            >
               <img
                 src="img/user.jpg"
                 alt="profile"
-                class="max-w-xs rounded-lg shadow-lg object-cover"
+                class="max-w-[350px] rounded-xl shadow-lg"
               />
             </div>
           </div>
@@ -156,20 +181,23 @@
       </section>
 
       <!-- SKILLS (icons-only, using images from img/icons/) -->
-      <section id="skill" class="py-16 bg-slate-50">
+      <section id="skill" class="py-20 bg-gradient-to-b from-slate-50 to-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="mb-8 ai-fade" data-animate>
-            <h4 class="text-sm text-slate-500">01</h4>
-            <h2 class="text-3xl font-bold">My Skills</h2>
+          <!-- Section Header -->
+          <div class="mb-12 ai-fade" data-animate>
+            <h4 class="text-sm text-slate-500 tracking-widest">01</h4>
+            <h2 class="text-4xl font-bold text-slate-800 mt-2">My Skills</h2>
+            <div class="w-20 h-1 bg-blue-500 mt-3 rounded-full"></div>
           </div>
 
-          <!-- icon grid -->
+          <!-- Skills Grid -->
           <div
-            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-6"
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mt-8"
           >
+            <!-- Skill Item Template -->
             <!-- HTML -->
             <div
-              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ai-fade"
               data-animate
             >
               <img
@@ -177,12 +205,12 @@
                 alt="HTML5"
                 class="w-14 h-14 object-contain"
               />
-              <span class="text-sm font-medium">HTML</span>
+              <span class="text-sm font-semibold text-slate-700">HTML</span>
             </div>
 
             <!-- CSS -->
             <div
-              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ai-fade"
               data-animate
             >
               <img
@@ -190,12 +218,12 @@
                 alt="CSS3"
                 class="w-14 h-14 object-contain"
               />
-              <span class="text-sm font-medium">CSS</span>
+              <span class="text-sm font-semibold text-slate-700">CSS</span>
             </div>
 
             <!-- JavaScript -->
             <div
-              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ai-fade"
               data-animate
             >
               <img
@@ -203,12 +231,14 @@
                 alt="JavaScript"
                 class="w-14 h-14 object-contain"
               />
-              <span class="text-sm font-medium">JavaScript</span>
+              <span class="text-sm font-semibold text-slate-700"
+                >JavaScript</span
+              >
             </div>
 
             <!-- React -->
             <div
-              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ai-fade"
               data-animate
             >
               <img
@@ -216,24 +246,25 @@
                 alt="React"
                 class="w-14 h-14 object-contain"
               />
-              <span class="text-sm font-medium">React</span>
+              <span class="text-sm font-semibold text-slate-700">React</span>
             </div>
 
+            <!-- Tailwind -->
             <div
-              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ai-fade"
               data-animate
             >
               <img
-                src="img\icons\icons8-tailwind-css-96.png"
-                alt="Tailwind (placeholder)"
+                src="img/icons/icons8-tailwind-css-96.png"
+                alt="Tailwind"
                 class="w-14 h-14 object-contain"
               />
-              <span class="text-sm font-medium">Tailwind</span>
+              <span class="text-sm font-semibold text-slate-700">Tailwind</span>
             </div>
 
             <!-- Node.js -->
             <div
-              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ai-fade"
               data-animate
             >
               <img
@@ -241,12 +272,12 @@
                 alt="Node.js"
                 class="w-14 h-14 object-contain"
               />
-              <span class="text-sm font-medium">Node.js</span>
+              <span class="text-sm font-semibold text-slate-700">Node.js</span>
             </div>
 
             <!-- Express -->
             <div
-              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ai-fade"
               data-animate
             >
               <img
@@ -254,12 +285,12 @@
                 alt="Express.js"
                 class="w-14 h-14 object-contain"
               />
-              <span class="text-sm font-medium">Express</span>
+              <span class="text-sm font-semibold text-slate-700">Express</span>
             </div>
 
             <!-- MongoDB -->
             <div
-              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ai-fade"
               data-animate
             >
               <img
@@ -267,12 +298,12 @@
                 alt="MongoDB"
                 class="w-14 h-14 object-contain"
               />
-              <span class="text-sm font-medium">MongoDB</span>
+              <span class="text-sm font-semibold text-slate-700">MongoDB</span>
             </div>
 
             <!-- Git -->
             <div
-              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ai-fade"
               data-animate
             >
               <img
@@ -280,12 +311,12 @@
                 alt="Git"
                 class="w-14 h-14 object-contain"
               />
-              <span class="text-sm font-medium">Git</span>
+              <span class="text-sm font-semibold text-slate-700">Git</span>
             </div>
 
             <!-- GitHub -->
             <div
-              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ai-fade"
               data-animate
             >
               <img
@@ -293,12 +324,12 @@
                 alt="GitHub"
                 class="w-14 h-14 object-contain"
               />
-              <span class="text-sm font-medium">GitHub</span>
+              <span class="text-sm font-semibold text-slate-700">GitHub</span>
             </div>
 
             <!-- VS Code -->
             <div
-              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ai-fade"
               data-animate
             >
               <img
@@ -306,12 +337,12 @@
                 alt="VS Code"
                 class="w-14 h-14 object-contain"
               />
-              <span class="text-sm font-medium">VS Code</span>
+              <span class="text-sm font-semibold text-slate-700">VS Code</span>
             </div>
 
             <!-- Postman -->
             <div
-              class="bg-white p-4 rounded-lg shadow flex flex-col items-center justify-center space-y-3 ai-fade"
+              class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center space-y-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ai-fade"
               data-animate
             >
               <img
@@ -319,143 +350,154 @@
                 alt="Postman"
                 class="w-14 h-14 object-contain"
               />
-              <span class="text-sm font-medium">Postman</span>
+              <span class="text-sm font-semibold text-slate-700">Postman</span>
             </div>
           </div>
         </div>
       </section>
 
       <!-- PROJECTS -->
-      <section id="projects" class="py-16 bg-slate-50">
+      <section
+        id="projects"
+        class="py-20 bg-gradient-to-b from-slate-50 to-white"
+      >
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="mb-8 ai-fade" data-animate>
-            <h4 class="text-sm text-slate-500">02</h4>
-            <h2 class="text-3xl font-bold">My Projects</h2>
+          <!-- Section Header -->
+          <div class="mb-12 ai-fade" data-animate>
+            <h4 class="text-sm text-slate-500 tracking-widest">02</h4>
+            <h2 class="text-4xl font-bold text-slate-800 mt-2">My Projects</h2>
+            <div class="w-20 h-1 bg-blue-500 mt-3 rounded-full"></div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Example project card repeat -->
+          <!-- Project Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Card 1 -->
             <article
-              class="bg-white rounded-lg shadow overflow-hidden ai-fade"
+              class="group bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300 ai-fade"
               data-animate
             >
               <button
                 class="w-full text-left"
-                data-project-open='{"title":"Code Blog","img":"img/portfolio/codeblog.jpeg","desc":"HTML | CSS | JavaScript | React.js","link":"g/"}'
+                data-project-open='{"title":"medibuddy","img":"img/portfolio/medibuddy.png","desc":"HTML | CSS | JavaScript","link":"https://bright-wisp-55cb10.netlify.app/"}'
               >
-                <img
-                  src="img/portfolio/codeblog.jpeg"
-                  alt="Code Blog"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="p-4">
-                  <!-- <h3 class="font-semibold">Code Blog</h3>
-                  <p class="text-sm text-slate-500">HTML | CSS | JavaScript | React.js</p> -->
+                <div class="overflow-hidden">
+                  <img
+                    src="img/portfolio/medibuddy.png"
+                    alt="medibuddy"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div class="p-5">
+                  <h3 class="font-semibold text-lg">MediCart</h3>
+                  <p class="text-sm text-slate-500 mt-1">
+                    HTML | CSS | JavaScript
+                  </p>
                 </div>
               </button>
             </article>
 
             <!-- Card 2 -->
             <article
-              class="bg-white rounded-lg shadow overflow-hidden ai-fade"
+              class="group bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300 ai-fade"
               data-animate
             >
               <button
                 class="w-full text-left"
-                data-project-open='{"title":"Visinory","img":"img/portfolio/visinory.jpeg","desc":"Python | TensorFlow | Fast-API | React.js","link":"/"}'
+                data-project-open='{"title":"Visinory","img":"img/portfolio/movie.png","desc":"HTML | CSS | JavaScript | OMDB API","link":"https://kaleidoscopic-heliotrope-fca01d.netlify.app/"}'
               >
-                <img
-                  src="img/portfolio/visinory.jpeg"
-                  alt="Visinory"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="p-4">
-                  <!-- <h3 class="font-semibold">Visinory</h3>
-                  <p class="text-sm text-slate-500">Python | TensorFlow | Fast-API | React.js</p> -->
+                <div class="overflow-hidden">
+                  <img
+                    src="img/portfolio/movie.png"
+                    alt="Visinory"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div class="p-5">
+                  <h3 class="font-semibold text-lg">Movie-Desk</h3>
+                  <p class="text-sm text-slate-500 mt-1">
+                    HTML | CSS | JavaScript | OMDB API
+                  </p>
                 </div>
               </button>
             </article>
 
             <!-- Card 3 -->
             <article
-              class="bg-white rounded-lg shadow overflow-hidden ai-fade"
+              class="group bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300 ai-fade"
               data-animate
             >
               <button
                 class="w-full text-left"
                 data-project-open='{"title":"TB Vision","img":"img/portfolio/tbvision.png","desc":"Python | PyTorch | HTML | CSS | JavaScript","link":"/"}'
               >
-                <img
-                  src="img/portfolio/tbvision.png"
-                  alt="TB Vision"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="p-4">
-                  <!-- <h3 class="font-semibold">TB Vision</h3>
-                  <p class="text-sm text-slate-500">Python | PyTorch | HTML | CSS | JavaScript</p> -->
+                <div class="overflow-hidden">
+                  <img
+                    src="img/portfolio/tbvision.png"
+                    alt="TB Vision"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
+                <div class="p-5"></div>
               </button>
             </article>
 
-            <!-- Additional project cards (Music Academy, Slack Clone, ChatBot, etc.) -->
+            <!-- Card 4 -->
             <article
-              class="bg-white rounded-lg shadow overflow-hidden ai-fade"
+              class="group bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300 ai-fade"
               data-animate
             >
               <button
                 class="w-full text-left"
                 data-project-open='{"title":"Music Academy","img":"img/portfolio/music-art.jpeg","desc":"React.js | Tailwind | UI","link":"/"}'
               >
-                <img
-                  src="img/portfolio/music-art.jpeg"
-                  alt="Music Academy"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="p-4">
-                  <!-- <h3 class="font-semibold">Music Academy</h3>
-                  <p class="text-sm text-slate-500">React.js | Tailwind | UI</p> -->
+                <div class="overflow-hidden">
+                  <img
+                    src="img/portfolio/music-art.jpeg"
+                    alt="Music Academy"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
+                <div class="p-5"></div>
               </button>
             </article>
 
+            <!-- Card 5 -->
             <article
-              class="bg-white rounded-lg shadow overflow-hidden ai-fade"
+              class="group bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300 ai-fade"
               data-animate
             >
               <button
                 class="w-full text-left"
-                data-project-open='{"title":"Slack Clone","img":"img/portfolio/slack-clone.jpeg","desc":"React.js| MUI| Node.js | Express.js| MongoDB | WebSocket","link":"/"}'
+                data-project-open='{"title":"Slack Clone","img":"img/portfolio/slack-clone.jpeg","desc":"React.js | MUI | Node.js | Express.js | MongoDB | WebSocket","link":"/"}'
               >
-                <img
-                  src="img/portfolio/slack-clone.jpeg"
-                  alt="Slack Clone"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="p-4">
-                  <!-- <h3 class="font-semibold">Slack Clone</h3>
-                  <p class="text-sm text-slate-500">React.js | Node.js | WebSocket</p> -->
+                <div class="overflow-hidden">
+                  <img
+                    src="img/portfolio/slack-clone.jpeg"
+                    alt="Slack Clone"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
+                <div class="p-5"></div>
               </button>
             </article>
 
+            <!-- Card 6 -->
             <article
-              class="bg-white rounded-lg shadow overflow-hidden ai-fade"
+              class="group bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300 ai-fade"
               data-animate
             >
               <button
                 class="w-full text-left"
                 data-project-open='{"title":"ChatBot For Leave","img":"img/portfolio/chatbot.jpeg","desc":"Python | MYSQL | RASA | Flask","link":"t"}'
               >
-                <img
-                  src="img/portfolio/chatbot.jpeg"
-                  alt="ChatBot"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="p-4">
-                  <!-- <h3 class="font-semibold">ChatBot For Leave</h3>
-                  <p class="text-sm text-slate-500">Python | RASA | Flask</p> -->
+                <div class="overflow-hidden">
+                  <img
+                    src="img/portfolio/chatbot.jpeg"
+                    alt="ChatBot"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
+                <div class="p-5"></div>
               </button>
             </article>
           </div>
@@ -463,128 +505,161 @@
       </section>
 
       <!-- EDUCATION -->
-      <section id="education" class="py-16">
+      <section id="education" class="py-20 bg-slate-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="mb-8 ai-fade" data-animate>
-            <h4 class="text-sm text-slate-500">03</h4>
-            <h2 class="text-3xl font-bold">Education</h2>
+          <!-- Section Heading -->
+          <div class="mb-12 ai-fade" data-animate>
+            <h4 class="text-sm text-slate-500 tracking-widest">03</h4>
+            <h2 class="text-4xl font-bold text-slate-800 mt-2">Education</h2>
+            <div class="w-16 h-1 bg-blue-500 mt-3 rounded-full"></div>
           </div>
 
-          <div class="space-y-6">
-            <div class="bg-white p-6 rounded-lg shadow ai-fade" data-animate>
-              <p class="text-sm text-slate-500">Sept 2017 - Jun 2022</p>
-              <h3 class="font-semibold">BATU University Pune</h3>
-              <p class="text-sm text-slate-600">
-                B.Tech Civil Engineering — CGPA: 8.4
+          <!-- Education Cards -->
+          <div class="grid sm:grid-cols-2 gap-8">
+            <!-- Card 1 -->
+            <div
+              class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow ai-fade"
+              data-animate
+            >
+              <p class="text-sm text-blue-600 font-medium">
+                Sept 2017 – Jun 2022
+              </p>
+              <h3 class="text-xl font-semibold mt-2">BATU University Pune</h3>
+              <p class="text-slate-600 mt-1">
+                B.Tech Civil Engineering
+                <span class="font-medium text-slate-700">— CGPA: 8.4</span>
               </p>
             </div>
 
-            <div class="bg-white p-6 rounded-lg shadow ai-fade" data-animate>
-              <p class="text-sm text-slate-500">Nov 2024 - Nov 2025</p>
-              <h3 class="font-semibold">Masai School</h3>
-              <p class="text-sm text-slate-600">Full Stack Web Dev Trainee</p>
+            <!-- Card 2 -->
+            <div
+              class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow ai-fade"
+              data-animate
+            >
+              <p class="text-sm text-blue-600 font-medium">
+                Nov 2024 – Nov 2025
+              </p>
+              <h3 class="text-xl font-semibold mt-2">Masai School</h3>
+              <p class="text-slate-600 mt-1">Full Stack Web Dev Trainee</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- CONTACT -->
-      <section id="contact" class="py-16 bg-white">
+      <section
+        id="contact"
+        class="py-20 bg-gradient-to-b from-white to-slate-50"
+      >
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Contact Info -->
             <div class="md:col-span-1 ai-fade" data-animate>
-              <h4 class="text-sm text-slate-500">04</h4>
-              <h2 class="text-2xl font-bold">Contact Me</h2>
+              <h4 class="text-sm text-slate-500 tracking-widest">04</h4>
+              <h2 class="text-4xl font-bold text-slate-800 mt-2">Contact Me</h2>
+              <div class="w-16 h-1 bg-blue-500 mt-3 rounded-full"></div>
 
-              <div class="mt-6 space-y-4 text-sm text-slate-600">
+              <div class="mt-8 space-y-6 text-sm text-slate-600">
                 <div>
-                  <h4 class="font-medium">Phone Number</h4>
-                  <p>+91 9028242263</p>
-                </div>
-                <div>
-                  <h4 class="font-medium">Email</h4>
-                  <p>sagarchopane@gmail.com</p>
+                  <h4 class="font-semibold text-slate-700">Phone Number</h4>
+                  <p class="mt-1">+91 9028242263</p>
                 </div>
 
                 <div>
-                  <h4 class="font-medium">Social</h4>
-                  <div class="flex gap-3 mt-2">
+                  <h4 class="font-semibold text-slate-700">Email</h4>
+                  <p class="mt-1">sagarchopane@gmail.com</p>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-slate-700">Social</h4>
+                  <div class="flex gap-4 mt-3">
                     <a
                       href="https://www.linkedin.com/in/sagar-chopane-76b094230/"
                       target="_blank"
-                      class="p-2 border rounded"
-                      >LinkedIn</a
+                      class="px-4 py-2 rounded-lg border border-slate-200 hover:border-blue-500 hover:text-blue-600 transition"
                     >
+                      LinkedIn
+                    </a>
                     <a
                       href="https://github.com/SagarChopane"
                       target="_blank"
-                      class="p-2 border rounded"
-                      >GitHub</a
+                      class="px-4 py-2 rounded-lg border border-slate-200 hover:border-blue-500 hover:text-blue-600 transition"
                     >
+                      GitHub
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- Contact Form -->
             <div class="md:col-span-2 ai-fade" data-animate>
               <form
                 id="contact-form"
-                class="bg-slate-50 p-6 rounded-lg shadow space-y-4"
+                class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 space-y-5"
                 novalidate
               >
+                <!-- Inputs -->
                 <input
                   type="text"
                   name="name"
                   placeholder="Your Name"
-                  class="w-full border rounded px-4 py-2"
+                  class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
                 />
+
                 <input
                   type="email"
                   name="email"
-                  placeholder="Your E-mail"
-                  class="w-full border rounded px-4 py-2"
+                  placeholder="Your Email"
+                  class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
                 />
+
                 <input
                   type="text"
                   name="phone"
                   placeholder="Phone Number"
-                  class="w-full border rounded px-4 py-2"
+                  class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
                 />
+
                 <textarea
                   name="message"
                   placeholder="Your Message"
-                  class="w-full border rounded px-4 py-2 h-36"
+                  class="w-full border border-slate-300 rounded-lg px-4 py-3 h-40 resize-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
                 ></textarea>
 
-                <div class="flex gap-3">
+                <!-- Buttons -->
+                <div class="flex gap-4">
                   <button
                     id="submit"
                     type="submit"
-                    class="px-6 py-2 bg-blue-600 text-white rounded"
+                    class="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
                   >
                     Send
                   </button>
                   <button
                     id="clear"
                     type="button"
-                    class="px-6 py-2 border rounded"
+                    class="px-8 py-3 border border-slate-300 rounded-lg hover:bg-slate-100 transition"
                   >
                     Clear
                   </button>
                 </div>
 
+                <!-- Success Message -->
                 <div
                   id="success"
-                  class="hidden bg-green-50 border border-green-200 text-green-800 p-3 rounded"
+                  class="hidden bg-green-50 border border-green-200 text-green-800 p-4 rounded-lg"
                 >
                   Your message was sent successfully! I will be in touch as soon
                   as I can.
                 </div>
+
+                <!-- Error Message -->
                 <div
                   id="error"
-                  class="hidden bg-red-50 border border-red-200 text-red-800 p-3 rounded"
+                  class="hidden bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg"
                 >
-                  Something went wrong, try refreshing and submitting the form
+                  Something went wrong. Try refreshing and submitting the form
                   again.
                 </div>
               </form>
